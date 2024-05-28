@@ -9,4 +9,4 @@ $(PROG): $(SRC)
 	$(COBC) $(COBCFLAGS) -x -o $(PROG) $(SRC)
 
 clean:
-	rm -f $(PROG)
+	rm -f $(PROG) $(PROG).o
