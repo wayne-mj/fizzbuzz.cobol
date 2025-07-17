@@ -17,10 +17,12 @@
 
        PROCEDURE DIVISION.
 
+      *    Request an upper limit.
            DISPLAY "Enter a value to count to: "
            WITH NO ADVANCING
            ACCEPT MYLIMIT
 
+      *    Check is 0 or below and set to a default of 100
            IF MYLIMIT <= 0
                MOVE 100 TO MYLIMIT
            END-IF
@@ -31,39 +33,33 @@
       *        COMPUTE REMAINDER OF COUNTER DIVIDED BY 3
       *        BECAUSE FOR SOME DUMB REASON MOD IS NOT DEFINED
       *        AND DOING IT THE MATHEMATICAL DOES NOT WORK WITH INTEGERS
-      *        FML!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       *        COMPUTE
       *            REMAINDER3 = COUNTER - ((COUNTER / 3) * 3)
       *        END-COMPUTE
       *        ALWAYS RETRUNS 0
                DIVIDE COUNTER BY 3 GIVING DIVISIONRESULT REMAINDER
                    REMAINDER3
-      *        END-DIVIDE
 
                IF REMAINDER3 = 0 THEN
                    STRING RESULT DELIMITED BY SPACE
                       FIZZ DELIMITED BY SPACE
                       INTO RESULT
-      *            END-STRING
                END-IF
 
       *        COMPUTE REMAINDER OF COUNTER DIVIDED BY 5
       *        BECAUSE FOR SOME DUMB REASON MOD IS NOT DEFINED
       *        AND DOING IT THE MATHEMATICAL DOES NOT WORK WITH INTEGERS
-      *        FML!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       *        COMPUTE
       *            REMAINDER5 = COUNTER - ((COUNTER / 5) * 5)
       *        END-COMPUTE
       *        ALWAYS RETRUNS 0
                DIVIDE COUNTER BY 5 GIVING DIVISIONRESULT REMAINDER
                    REMAINDER5
-      *        END-DIVIDE
 
                IF REMAINDER5 = 0 THEN
                    STRING RESULT DELIMITED BY SPACE
                       BUZZ DELIMITED BY SPACE
                       INTO RESULT
-      *            END-STRING
                END-IF
 
                IF RESULT = SPACES THEN
@@ -75,7 +71,6 @@
 
                ADD
                    1 TO COUNTER
-      *        END-ADD
            END-PERFORM.
            STOP RUN.
 
