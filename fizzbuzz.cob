@@ -8,8 +8,6 @@
        WORKING-STORAGE SECTION.
        01 COUNTER          PIC 99999 VALUE 1.
        01 RESULT           PIC X(8) VALUE SPACES.
-       01 FIZZ             PIC X(4) VALUE "FIZZ".
-       01 BUZZ             PIC X(4) VALUE "BUZZ".
        01 REMAINDER3       PIC 9 VALUE 0.
        01 REMAINDER5       PIC 9 VALUE 0.
        01 DIVISIONRESULT   PIC 99 VALUE 0.
@@ -42,7 +40,7 @@
 
                IF REMAINDER3 = 0 THEN
                    STRING RESULT DELIMITED BY SPACE
-                      FIZZ DELIMITED BY SPACE
+                   "FIZZ" DELIMITED BY SPACE
                       INTO RESULT
                END-IF
 
@@ -58,7 +56,7 @@
 
                IF REMAINDER5 = 0 THEN
                    STRING RESULT DELIMITED BY SPACE
-                      BUZZ DELIMITED BY SPACE
+                      "BUZZ" DELIMITED BY SPACE
                       INTO RESULT
                END-IF
 
